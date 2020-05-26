@@ -1,5 +1,11 @@
+const pkg = require('../package.json')
+const { join } = require('path')
+const { copySync, removeSync } = require('fs-extra')
+
 export default {
     mode: 'spa',
+
+    srcDir: "resources",
 
     env: {
         version: pkg.version,
@@ -35,7 +41,7 @@ export default {
     // },
     router: {
         middleware: [
-            'check-auth',
+            // 'check-auth',
         ],
         linkActiveClass: 'active-link'
     },
@@ -43,7 +49,7 @@ export default {
     /*
     ** Customize the progress-bar color
     */
-    loading: '~/components/PageLoader.vue',
+    // loading: '~/components/PageLoader.vue',
 
     /*
     ** Global CSS
@@ -56,15 +62,7 @@ export default {
     ** Plugins to load before mounting the App
     */
     plugins: [
-        '~plugins/permission-directive',
-        '~plugins/vue-tippy',
-        '~plugins/event-bus',
-        '~plugins/lazy',
-        '~plugins/vform',
-        '~plugins/axios',
-        '~plugins/modal',
-        '~plugins/vue-select',
-        '~plugins/nuxt-client-init',
+        //
     ],
 
     /*
@@ -89,7 +87,6 @@ export default {
     modules: [
         // Doc: https://axios.nuxtjs.org/usage
         '@nuxtjs/axios',
-        '@nuxtjs/pwa',
         'nuxt-lazy-load',
         '@nuxtjs/toast'
         // '@nuxtjs/sitemap'
@@ -111,24 +108,21 @@ export default {
     ** See https://axios.nuxtjs.org/options
     */
     axios: {
-
+        //
     },
     /*
     ** Build configuration
     */
     build: {
-
-        postcss: {
-            plugins: [
-                postcssImport()
-            ]
-        },
-
         /*
         ** You can extend webpack config here.
         */
         extend (config, ctx) {
             //
         },
+    },
+
+    generate: {
+        dir: 'public',
     }
 }

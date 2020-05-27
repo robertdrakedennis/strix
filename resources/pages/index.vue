@@ -1,38 +1,27 @@
 <template>
-    <div class="container">
-        <div>
-            <logo />
-            <h1 class="title">
-                si-front-1
-            </h1>
-            <h2 class="subtitle">
-                My shining Nuxt.js project
-            </h2>
-            <div class="links">
-                <a
-                    href="https://nuxtjs.org/"
-                    target="_blank"
-                    class="button--green"
-                >
-                    Documentation
-                </a>
-                <a
-                    href="https://github.com/nuxt/nuxt.js"
-                    target="_blank"
-                    class="button--grey"
-                >
-                    GitHub
-                </a>
-            </div>
-        </div>
+    <div>
+        <Button type="button" variant="default" size="large">
+            Default Button
+        </Button>
+        <Button type="button" variant="primary" size="large">
+            Primary Button
+        </Button>
+        <Button type="button" variant="success" size="large">
+            Success Button
+        </Button>
+        <Button type="button" variant="danger" size="large">
+            Danger Button
+        </Button>
     </div>
 </template>
 
 <script>
     import Logo from '~/components/Logo.vue'
+    import Button from "~/components/Button";
 
     export default {
         components: {
+            Button,
             Logo
         }
     }

@@ -1,6 +1,4 @@
 const pkg = require('../package.json')
-const { join } = require('path')
-const { copySync, removeSync } = require('fs-extra')
 
 export default {
     mode: 'spa',
@@ -108,7 +106,8 @@ export default {
     ** See https://axios.nuxtjs.org/options
     */
     axios: {
-        //
+        withCredentials: true,
+        baseURL: 'http://api.strix.test'
     },
     /*
     ** Build configuration

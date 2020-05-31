@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://api.strix.test'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -165,16 +165,16 @@ return [
         /*
          * Package Service Providers...
          */
+        \SocialiteProviders\Manager\ServiceProvider::class,
 
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
+        Strix\Providers\AppServiceProvider::class,
+        Strix\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
-
+        Strix\Providers\EventServiceProvider::class,
+        Strix\Providers\RouteServiceProvider::class,
     ],
 
     /*

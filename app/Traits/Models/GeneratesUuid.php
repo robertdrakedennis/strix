@@ -1,11 +1,33 @@
 <?php
 
 
-namespace App\Traits\Models;
+namespace Strix\Traits\Models;
 
 
 trait GeneratesUuid
 {
+    /**
+     * Initializes values for
+     *
+     * @return void
+     */
+    public function initializeGeneratesUuid(): void
+    {
+        /**
+         * Indicates if the IDs are auto-incrementing.
+         *
+         * @var bool
+         */
+        $this->incrementing = false;
+
+        /**
+         * The "type" of the primary key ID.
+         *
+         * @var string
+         */
+        $this->keyType = 'string';
+    }
+
     /**
      * Any model that is in the creating / bootable state will have a UUID 4 created for their primary key.
      *

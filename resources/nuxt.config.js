@@ -39,7 +39,7 @@ export default {
     // },
     router: {
         middleware: [
-            // 'check-auth',
+            'authCheck',
         ],
         linkActiveClass: 'active-link'
     },
@@ -69,13 +69,23 @@ export default {
     buildModules: [
         // Doc: https://github.com/nuxt-community/eslint-module
         // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-        ['@nuxtjs/dotenv', { path: './' }],
-        '@nuxtjs/tailwindcss'
+        ['@nuxtjs/dotenv', {
+            path: './',
+            only: [
+                'APP_NAME',
+                'APP_ENV',
+                'APP_DEBUG',
+
+            ]
+        }],
+        '@nuxtjs/tailwindcss',
+        '@nuxtjs/router',
+        '@nuxt/components'
     ],
 
     tailwindcss: {
         configPath: '~/config/tailwind.config.js',
-        cssPath: '~/assets/styles/app.scss',
+        cssPath: '~/assets/styles/Strix.scss',
         purge: false
     },
 
@@ -89,6 +99,7 @@ export default {
         '@nuxtjs/toast'
         // '@nuxtjs/sitemap'
     ],
+
 
     toast: {
         position: 'bottom-right',
@@ -106,8 +117,12 @@ export default {
     ** See https://axios.nuxtjs.org/options
     */
     axios: {
-        withCredentials: true,
-        baseURL: 'http://api.strix.test'
+        credentials: true,
+        baseURL: 'http://api.strix.test',
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+            'Content-Type': 'application/json'
+        }
     },
     /*
     ** Build configuration
@@ -119,9 +134,13 @@ export default {
         extend (config, ctx) {
             //
         },
+        extractCSS: true
     },
 
     generate: {
         dir: 'client',
+        routes: [
+            '/'
+        ]
     }
 }

@@ -41,7 +41,7 @@
             </li>
 
             <li class="navbar__item">
-                <nuxt-link to="/" class="navbar__link">
+                <nuxt-link to="/">
                     <img class="navbar__avatar" src="http://strix.legacy/storage/90a8be0e-32bd-4145-a246-91fd47bc90bb/efc8c2a440e1e57fb2cb027953f7aab7.jpg" alt="avatar">
                 </nuxt-link>
             </li>
@@ -83,7 +83,7 @@
     }
 
     .navbar__link {
-        @apply text-sm opacity-75 cursor-pointer px-4 py-2 items-center justify-center text-neutral-200;
+        @apply text-sm opacity-75 cursor-pointer px-4 py-2 items-center justify-center text-neutral-200 transition-opacity duration-300 ease-in-out;
 
         &:hover {
             @apply opacity-100;
@@ -91,6 +91,6 @@
     }
 
     .navbar__avatar {
-        @apply w-12 h-12 rounded;
+        @apply w-12 h-12 rounded ml-4;
     }
 </style>

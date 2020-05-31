@@ -12,3 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::post('/auth/register', [\Strix\Http\Controllers\Auth\RegisterController::class, 'register']);
+Route::post('/auth/login', [\Strix\Http\Controllers\Auth\LoginController::class, 'login']);
+Route::post('/auth/oauth/{provider}', [\Strix\Http\Controllers\Auth\OAuthController::class, 'redirectToProvider']);
+Route::get('/auth/oauth/callback/{provider}', [\Strix\Http\Controllers\Auth\OAuthController::class, 'handleProviderCallback']);

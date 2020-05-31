@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace Strix\Http\Middleware;
 
 use App\Providers\RouteServiceProvider;
 use Closure;

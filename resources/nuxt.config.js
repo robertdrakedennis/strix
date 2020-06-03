@@ -1,4 +1,5 @@
 const pkg = require('../package.json')
+require('dotenv').config()
 
 export default {
     mode: 'spa',
@@ -63,6 +64,10 @@ export default {
         //
     ],
 
+    components: [
+        { path: `~/views/theme/${process.env.APP_THEME}/components` }
+        ],
+
     /*
     ** Nuxt.js dev-modules
     */
@@ -75,6 +80,7 @@ export default {
                 'APP_NAME',
                 'APP_ENV',
                 'APP_DEBUG',
+                'APP_THEME'
 
             ]
         }],
@@ -132,15 +138,11 @@ export default {
         ** You can extend webpack config here.
         */
         extend (config, ctx) {
-            //
         },
         extractCSS: true
     },
 
     generate: {
         dir: 'client',
-        routes: [
-            '/'
-        ]
     }
 }

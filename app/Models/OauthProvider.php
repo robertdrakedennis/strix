@@ -1,8 +1,10 @@
 <?php
+declare(strict_types=1);
 
 namespace Strix\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Strix\Traits\Models\GeneratesNanoId;
 use Strix\Traits\Models\GeneratesUuid;
 
 /**
@@ -29,10 +31,12 @@ use Strix\Traits\Models\GeneratesUuid;
  * @method static \Illuminate\Database\Eloquent\Builder|\Strix\Models\OauthProvider whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Strix\Models\OauthProvider whereUserId($value)
  * @mixin \Eloquent
+ * @property string $uid
+ * @method static \Illuminate\Database\Eloquent\Builder|\Strix\Models\OauthProvider whereUid($value)
  */
 class OauthProvider extends Model
 {
-    use GeneratesUuid;
+    use GeneratesNanoId;
 
     /**
      * The table associated with the model.
@@ -42,7 +46,7 @@ class OauthProvider extends Model
     protected $table = 'oauth_providers';
 
     protected $fillable = [
-        'provider', 'provider_user_id', 'access_token', 'refresh_token', 'user_id',
+        'provider', 'provider_user_id', 'access_token', 'refresh_token', 'profile_url'
     ];
 
     /**

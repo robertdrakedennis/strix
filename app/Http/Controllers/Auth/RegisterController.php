@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Strix\Http\Controllers\Auth;
 
@@ -61,7 +62,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Strix\Models\User
      */
-    protected function create(array $data)
+    protected function create(array $data): User
     {
         return User::create([
             'name' => $data['name'],

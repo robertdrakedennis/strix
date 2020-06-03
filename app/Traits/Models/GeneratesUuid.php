@@ -1,8 +1,11 @@
 <?php
+declare(strict_types=1);
 
 
 namespace Strix\Traits\Models;
 
+
+use Illuminate\Database\Eloquent\Model;
 
 trait GeneratesUuid
 {
@@ -34,7 +37,7 @@ trait GeneratesUuid
      */
     protected static function bootGeneratesUuid(): void
     {
-        static::creating(function ($model) {
+        static::creating(function (Model $model) {
             $model->{$model->getKeyName()} = static::generateUUID();
         });
     }

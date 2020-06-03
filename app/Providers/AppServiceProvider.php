@@ -1,8 +1,11 @@
 <?php
+declare(strict_types=1);
 
 namespace Strix\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Strix\Models\Ability;
+use Strix\Models\Role;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -11,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         if ($this->app->isLocal()) {
             $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
@@ -24,8 +27,19 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
-        //
+        $this->bootBouncerModels();
+    }
+
+    /**
+     * Boots bouncer to use custom ability / roles
+     *
+     * @return void
+     */
+    public function bootBouncerModels(): void
+    {
+        \Bouncer::useAbilityModel(Ability::class);
+        \Bouncer::useRoleModel(Role::class);
     }
 }

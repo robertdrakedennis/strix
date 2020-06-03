@@ -8,10 +8,11 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.2.5",
+        "php": "^7.4",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
+        "hidehalo/nanoid-php": "^1.1",
         "laravel/framework": "^7.0",
         "laravel/sanctum": "^2.3",
         "laravel/socialite": "^4.3",
@@ -19,7 +20,9 @@
         "laravel/ui": "^2.0",
         "predis/predis": "^1.1",
         "robertdrakedennis/socialiteproviders-steam": "dev-master",
-        "socialiteproviders/discord": "^2.0"
+        "silber/bouncer": "v1.0.0-rc.8",
+        "socialiteproviders/discord": "^2.0",
+        "spatie/laravel-medialibrary": "^8.0.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.7",

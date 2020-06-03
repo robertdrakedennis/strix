@@ -14,8 +14,10 @@ class CreateOauthProvidersTable extends Migration
     public function up()
     {
         Schema::create('oauth_providers', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->uuid('user_id');
+            $table->bigIncrements('id');
+            $table->string('uid', 21)->index();
+
+            $table->unsignedBigInteger('user_id');
             $table->string('provider');
             $table->string('provider_user_id')->index();
             $table->string('access_token')->nullable();

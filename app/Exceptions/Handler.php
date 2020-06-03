@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Strix\Exceptions;
 
@@ -34,7 +35,7 @@ class Handler extends ExceptionHandler
      *
      * @throws \Exception
      */
-    public function report(Throwable $exception)
+    public function report(Throwable $exception): void
     {
         parent::report($exception);
     }
@@ -48,7 +49,7 @@ class Handler extends ExceptionHandler
      *
      * @throws \Throwable
      */
-    public function render($request, Throwable $exception)
+    public function render($request, Throwable $exception): \Symfony\Component\HttpFoundation\Response
     {
         return parent::render($request, $exception);
     }

@@ -1,10 +1,11 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue from 'vue';
+import Router from 'vue-router';
 
-Vue.use(Router)
+Vue.use(Router);
 
-const page = path => async () => await import(`~/pages/${path}`).then(m => m.default || m)
+const theme = process.env.APP_THEME;
 
+const page = path => async () => await import(`~/views/theme/${theme}/pages/${path}`).then(m => m.default || m);
 
 export function createRouter() {
     return new Router({

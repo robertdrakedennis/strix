@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Strix\Http\Controllers\Auth;
 
@@ -10,10 +11,11 @@ use Strix\Http\Controllers\Controller;
 use Strix\Http\Resources\Users\DefaultUserResource;
 use Strix\Models\OauthProvider;
 use Strix\Models\User;
+use Strix\Traits\Generators\NanoIdGenerator;
 
 class OAuthController extends Controller
 {
-    use AuthenticatesUsers;
+    use AuthenticatesUsers, NanoIdGenerator;
 
     /**
      * Redirect the user to the provider authentication page.
@@ -75,9 +77,10 @@ class OAuthController extends Controller
     }
 
     /**
-     * @param  string $provider
-     * @param  \Laravel\Socialite\Contracts\User $socialiteUser
+     * @param string $provider
+     * @param \Laravel\Socialite\Contracts\User $socialiteUser
      * @return User
+     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileCannotBeAdded
      */
     protected function createUser(string $provider, \Laravel\Socialite\Contracts\User $socialiteUser): User
     {
@@ -87,6 +90,14 @@ class OAuthController extends Controller
         ]);
 
         $user->markEmailAsVerified();
+
+        $avatar = $socialiteUser->getAvatar();
+
+        $user->addMediaFromUrl($avatar)
+            ->sanitizingFileName(function($avatar) {
+                return static::generateNanoId(false) . '.' .  \File::extension($avatar);
+            })
+            ->toMediaCollection('avatar');
 
         $user->oauthProviders()->create([
             'provider' => $provider,

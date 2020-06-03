@@ -40,7 +40,13 @@
                 </Button>
             </li>
 
-            <li class="navbar__item">
+            <li v-if="user" class="navbar__item">
+                <nuxt-link to="/">
+                    <img class="navbar__avatar" :src="user.avatar" alt="avatar">
+                </nuxt-link>
+            </li>
+
+            <li v-else class="navbar__item">
                 <nuxt-link to="/">
                     <img class="navbar__avatar" src="http://strix.legacy/storage/90a8be0e-32bd-4145-a246-91fd47bc90bb/efc8c2a440e1e57fb2cb027953f7aab7.jpg" alt="avatar">
                 </nuxt-link>
@@ -50,10 +56,13 @@
 </template>
 
 <script>
-    import Button from "~/components/Button";
+    import { mapGetters } from 'vuex'
+
     export default {
         name: "Navbar",
-        components: {Button}
+        computed: mapGetters({
+            user: 'auth/user'
+        }),
     }
 </script>
 

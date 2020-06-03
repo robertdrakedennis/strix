@@ -6,7 +6,7 @@
         "start": "nuxt start -c resources/nuxt.config.js"
     },
     "devDependencies": {
-        "@nuxt/components": "^0.3.0",
+        "@nuxt/components": "^0.3.3",
         "@nuxtjs/router": "^1.5.0",
         "axios": "^0.19",
         "cross-env": "^7.0",

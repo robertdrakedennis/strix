@@ -2,6 +2,7 @@
 
 namespace Strix\Http\Controllers\Auth;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Strix\Http\Controllers\Controller;
@@ -17,7 +18,7 @@ class VerificationController extends Controller
      * @param  \Strix\Models\User $user
      * @return \Illuminate\Http\JsonResponse
      */
-    public function verify(Request $request, User $user)
+    public function verify(Request $request, User $user): JsonResponse
     {
         if (! URL::hasValidSignature($request)) {
             return response()->json([
@@ -45,7 +46,7 @@ class VerificationController extends Controller
      * @return \Illuminate\Http\JsonResponse
      * @throws ValidationException
      */
-    public function resend(Request $request)
+    public function resend(Request $request): JsonResponse
     {
         $this->validate($request, ['email' => 'required|email']);
 

@@ -12,8 +12,21 @@ class DefaultUserResource extends JsonResource
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
-    public function toArray($request)
+    public function toArray($request): array
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'uid' => $this->uid,
+            'name' => $this->name,
+            'slug' => $this->slug,
+            'avatar' => $this->getCachedMediaUrl('avatar'),
+            'email' => $this->email,
+            'email_verified_at' => $this->email_verified_at,
+            'email_verified_at_human' => $this->email_verified_at->diffForHumans(),
+            'created_at' => $this->created_at,
+            'created_at_human' => $this->created_at->diffForHumans(),
+            'updated_at' => $this->updated_at,
+            'updated_at_human' => $this->updated_at->diffForHumans()
+        ];
     }
 }

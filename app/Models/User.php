@@ -1,9 +1,15 @@
 <?php
+declare(strict_types=1);
 
 namespace Strix\Models;
 
 use Laravel\Sanctum\HasApiTokens;
-use Strix\Traits\Models\GeneratesUuid;
+use Silber\Bouncer\Database\HasRolesAndAbilities;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Strix\Traits\Media\CachesMediaUrl;
+use Strix\Traits\Models\GeneratesNanoId;
+use Strix\Traits\Models\Sluggable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -39,10 +45,23 @@ use Illuminate\Notifications\Notifiable;
  * @property-read int|null $tokens_count
  * @property string|null $deleted_at
  * @method static \Illuminate\Database\Eloquent\Builder|\Strix\Models\User whereDeletedAt($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Strix\Models\Media[] $media
+ * @property-read int|null $media_count
+ * @property string $slug
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Strix\Models\Ability[] $abilities
+ * @property-read int|null $abilities_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Strix\Models\Role[] $roles
+ * @property-read int|null $roles_count
+ * @method static \Illuminate\Database\Eloquent\Builder|\Strix\Models\User whereIs($role)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Strix\Models\User whereIsAll($role)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Strix\Models\User whereIsNot($role)
+ * @method static \Illuminate\Database\Eloquent\Builder|\Strix\Models\User whereSlug($value)
+ * @property string $uid
+ * @method static \Illuminate\Database\Eloquent\Builder|\Strix\Models\User whereUid($value)
  */
-class User extends Authenticatable /*  implements MustVerifyEmail */
+class User extends Authenticatable implements MustVerifyEmail, HasMedia
 {
-    use Notifiable, GeneratesUuid, HasApiTokens;
+    use Notifiable, GeneratesNanoId, HasApiTokens, InteractsWithMedia, HasRolesAndAbilities, CachesMediaUrl, Sluggable;
 
     /**
      * The attributes that are mass assignable.
@@ -50,7 +69,7 @@ class User extends Authenticatable /*  implements MustVerifyEmail */
      * @var array
      */
     protected $fillable = [
-        'id', 'name', 'email', 'password',
+        'id', 'slug', 'name', 'email', 'password',
     ];
 
     /**
@@ -70,6 +89,33 @@ class User extends Authenticatable /*  implements MustVerifyEmail */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
+
+    /**
+     * Registers the media collections the user will have
+     *
+     * @return void
+     */
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('avatar')
+            ->singleFile();
+
+        $this->addMediaCollection('cover')
+            ->singleFile();
+
+        $this->addMediaCollection('cover.post')
+            ->singleFile();
+    }
 
     /**
      * Get the oauth providers.

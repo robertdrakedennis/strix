@@ -130,31 +130,29 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="css">
     .button {
         width: 5rem;
 
         @apply relative font-light inline-flex flex-shrink-0 items-center justify-center text-center text-base px-6 rounded select-none cursor-pointer whitespace-no-wrap;
-
-        &:disabled {
-            filter: grayscale(1);
-
-            @apply pointer-events-none cursor-not-allowed text-neutral-500 border-neutral-200 bg-neutral-100 #{!important};
-        }
     }
 
-    .button--hover-default {
-        &:hover {
-            transform: translate3d(0, -1px, 0);
-        }
+    .button:disabled {
+        filter: grayscale(1);
+
+        @apply pointer-events-none cursor-not-allowed text-neutral-500 border-neutral-200 bg-neutral-100 !important;
+    }
+
+    .button--hover-default:hover {
+        transform: translate3d(0, -1px, 0);
     }
 
     .button--default {
         @apply bg-neutral-500 text-neutral-100 transition-colors duration-300 ease-in-out;
+    }
 
-        &:hover {
-            @apply bg-neutral-400;
-        }
+    .button--default:hover {
+        @apply bg-neutral-400;
     }
 
     .button--primary {
@@ -163,10 +161,10 @@
         background-position: right 0;
 
         @apply text-neutral-100 transition-all duration-300 ease-in-out;
+    }
 
-        &:hover {
-            background-position: 0 0;
-        }
+    .button--primary:hover {
+        background-position: 0 0;
     }
 
     .button--success {
@@ -175,10 +173,10 @@
         background-position: right 0;
 
         @apply text-white transition-all duration-300 ease-in-out;
+    }
 
-        &:hover {
-            background-position: 0 0;
-        }
+    .button--success:hover {
+        background-position: 0 0;
     }
 
     .button--danger {
@@ -187,10 +185,10 @@
         background-position: right 0;
 
         @apply text-white transition-all duration-300 ease-in-out;
+    }
 
-        &:hover {
-            background-position: 0 0;
-        }
+    .button--danger {
+        background-position: 0 0;
     }
 
     .button--shadow {

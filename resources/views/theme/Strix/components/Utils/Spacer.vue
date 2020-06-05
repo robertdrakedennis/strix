@@ -14,7 +14,7 @@
     }
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="css">
     .spacer {
         height: 1px;
         width: 1px;

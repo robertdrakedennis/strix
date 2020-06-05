@@ -85,16 +85,16 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="css">
     .navbar {
         @apply fixed w-full z-50 top-0 left-0 bg-transparent transition-all duration-300 ease-in-out;
     }
 
     .navbar--scroll {
-        // for whatever reason this doesnt work but it says literally everywhere this is supposed to work?
-        /*background-color: rgba(var(--colors-neutral-800), 1);*/
+        /* for whatever reason this doesnt work but it says literally everywhere this is supposed to work? */
+        background-color: rgba(var(--colors-primary-500), 0.8);
         backdrop-filter: blur(10px);
-        background-color: rgba(#09090b, 0.8);
+        /*background-color: rgba(#09090b, 0.8);*/
     }
 
     .navbar__container {
@@ -123,10 +123,10 @@
 
     .navbar__link {
         @apply text-sm opacity-75 cursor-pointer px-4 py-2 items-center justify-center text-neutral-200 transition-opacity duration-300 ease-in-out;
+    }
 
-        &:hover {
-            @apply opacity-100;
-        }
+    .navbar__link:hover {
+        @apply opacity-100;
     }
 
     .navbar__avatar {

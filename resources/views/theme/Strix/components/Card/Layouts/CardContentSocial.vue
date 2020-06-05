@@ -33,7 +33,7 @@
     }
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="css">
     .card__social {
         @apply relative h-full w-full flex flex-col items-center justify-center p-5;
     }

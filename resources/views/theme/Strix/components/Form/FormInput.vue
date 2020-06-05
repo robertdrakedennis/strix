@@ -72,17 +72,17 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="css">
     .input {
         @apply relative flex flex-row items-center justify-between flex-grow flex-shrink-0;
     }
 
     .input__content {
         @apply h-full w-full bg-transparent appearance-none border-0 border-b border-neutral-200 rounded-none text-neutral-100 leading-tight transition-all duration-300 ease-in-out;
+    }
 
-        &:focus {
-            @apply outline-none border-primary-500;
-        }
+    .input__content:focus {
+        @apply outline-none border-primary-500;
     }
 
     .input--medium {

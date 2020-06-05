@@ -20,7 +20,7 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="css">
     .card__wrapper {
         @apply h-full w-full absolute;
     }

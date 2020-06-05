@@ -101,7 +101,7 @@ export default {
 
     tailwindcss: {
         configPath: '~/config/tailwind.config.js',
-        cssPath: '~/assets/styles/Strix.scss',
+        cssPath: '~/assets/styles/Strix.css',
         purge: false
     },
 

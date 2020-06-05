@@ -24,7 +24,7 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="css">
     .card {
         box-shadow: 0 5px 15px -5px rgba(0,0,0,0.5);
 

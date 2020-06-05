@@ -1,12 +1,12 @@
-@import "colors";
+@import "./_colors.css";
 
 @import url('https://rsms.me/inter/inter.css');
 
-@import "~tailwindcss/base";
+@tailwind base;
 
-@import "~tailwindcss/components";
+@tailwind components;
 
-@import "~tailwindcss/utilities";
+@tailwind utilities;
 
 .lazyLoad {
     @apply opacity-0 transition-opacity duration-200 ease-in-out;

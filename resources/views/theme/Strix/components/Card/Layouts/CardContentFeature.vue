@@ -24,7 +24,7 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="css">
     .card__feature {
         @apply relative h-full w-full flex flex-col items-center justify-center p-5;
     }
@@ -33,7 +33,7 @@
     *  Will eventually think of a better solution.
     */
     .card__icon {
-        @apply h-8 w-8 text-white #{!important};
+        @apply h-8 w-8 text-white !important;
     }
 
     .card__title {

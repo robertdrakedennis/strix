@@ -156,7 +156,7 @@
     }
 
     .button--primary {
-        background: linear-gradient(to right, var(--colors-primary-500) 50%, var(--colors-primary-700) 100%);
+        background: linear-gradient(to right, theme('colors.primary.500') 50%, theme('colors.primary.700') 100%);
         background-size: 200%;
         background-position: right 0;
 

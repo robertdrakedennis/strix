@@ -21,10 +21,11 @@
     }
 
     .loader__dot {
-        @apply inline-block bg-transparent rounded-full opacity-0;
         height: 5px;
         width: 5px;
         animation-fill-mode: both;
+
+        @apply inline-block bg-transparent rounded-full opacity-0;
     }
 
     .loader__dot:nth-child(1) {
@@ -43,12 +44,14 @@
 
     @keyframes loaderAnimation {
         0% {
-            @apply opacity-0;
             transform: translateY(175%);
+
+            @apply opacity-0;
         }
         30% {
-            @apply opacity-100;
             transform: translateY(0);
+
+            @apply opacity-100;
         }
         100% { }
     }

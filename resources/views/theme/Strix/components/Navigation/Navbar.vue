@@ -91,10 +91,9 @@
     }
 
     .navbar--scroll {
-        /* for whatever reason this doesnt work but it says literally everywhere this is supposed to work? */
-        background-color: rgba(var(--colors-primary-500), 0.8);
+        @apply bg-neutral-700 bg-opacity-75;
+
         backdrop-filter: blur(10px);
-        /*background-color: rgba(#09090b, 0.8);*/
     }
 
     .navbar__container {

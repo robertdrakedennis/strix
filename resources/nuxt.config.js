@@ -1,4 +1,5 @@
 const pkg = require('../package.json')
+
 require('dotenv').config()
 
 export default {
@@ -140,11 +141,10 @@ export default {
         */
         extend (config, ctx) {
         },
-
+    },
         parallel: false,
 
         extractCSS: false,
-    },
 
     generate: {
         dir: 'client',

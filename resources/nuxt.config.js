@@ -142,9 +142,6 @@ export default {
         extend (config, ctx) {
         },
     },
-        parallel: false,
-
-        extractCSS: false,
 
     generate: {
         dir: 'client',

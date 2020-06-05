@@ -12,7 +12,6 @@ export default {
         version: pkg.version,
     },
 
-
     /*
     ** Headers of the page
     */
@@ -33,14 +32,7 @@ export default {
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
         ]
     },
-    // sitemap: {
-    //   routes() {
-    //     return getRoutes();
-    //   },
-    //   path: '/sitemap.xml',
-    //   gzip: true,
-    //   generate: false,
-    // },
+
     router: {
         middleware: [
             'authCheck',
@@ -116,7 +108,6 @@ export default {
         // '@nuxtjs/sitemap'
     ],
 
-
     toast: {
         position: 'bottom-right',
         theme: "outline",
@@ -149,7 +140,10 @@ export default {
         */
         extend (config, ctx) {
         },
-        extractCSS: true
+
+        parallel: false,
+
+        extractCSS: false,
     },
 
     generate: {

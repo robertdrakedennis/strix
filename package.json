@@ -6,7 +6,10 @@
         "start": "nuxt start -c resources/nuxt.config.js"
     },
     "devDependencies": {
+        "@fortawesome/free-brands-svg-icons": "^5.13.0",
+        "@fortawesome/free-solid-svg-icons": "^5.13.0",
         "@nuxt/components": "^0.3.3",
+        "@nuxtjs/fontawesome": "^1.1.2",
         "@nuxtjs/router": "^1.5.0",
         "axios": "^0.19",
         "cross-env": "^7.0",

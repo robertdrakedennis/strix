@@ -1,5 +1,5 @@
 <template>
-    <span aria-hidden="true" class="spacer" :style="{ marginTop: 'calc(' + x + ')' }"></span>
+    <span aria-hidden="true" class="spacer" :style="{ marginTop: `calc(${x})` }"></span>
 </template>
 
 <script>

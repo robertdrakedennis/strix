@@ -11,6 +11,13 @@ use Illuminate\Support\Str;
 trait Sluggable
 {
     /**
+     *
+     *
+     * @var string
+     */
+    protected static string  $fallbackColumn = 'uid';
+
+    /**
      * Any model that is in the creating / bootable state will have a slug created for their slug field.
      *
      */
@@ -35,7 +42,7 @@ trait Sluggable
             return static::processRelatedSlugs($model, $slug);
         }
 
-        return $model->id;
+        return $model->getAttributeValue(static::$fallbackColumn);
     }
 
     /**
@@ -48,7 +55,7 @@ trait Sluggable
     protected static function processRelatedSlugs(Model $model, string $slug): string
     {
         if ($model->where('slug', '=', $slug)->exists()) {
-            return $model->id;
+            return $model->getAttributeValue('uid');
         }
 
         return $slug;

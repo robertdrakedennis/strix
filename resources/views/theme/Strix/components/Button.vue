@@ -1,5 +1,5 @@
 <template>
-    <component :is="computedType" :href="url" :to="url" :class="this.classes" :disabled="disabled" :style="{ backgroundColor: themeColor, height: height }">
+    <component :is="computedType" :href="url" :to="url" :class="classes" :disabled="disabled" :style="{ backgroundColor: themeColor, height: `calc(${height})`, width: `calc(${width})` }">
         <div v-if="icon" class="button__icon">
             <slot name="icon" />
         </div>
@@ -23,7 +23,7 @@
                     'button--font-' + (this.bold ? 'bold' : 'none'),
                     'button--hover-' + (this.hover ? 'variant' : 'default'),
                     'button--' + (this.disabled ? 'disabled' : 'enabled'),
-                    'button--width-' + this.width
+                    'button--position-' + (this.centered ? 'centered' : 'default'),
                 ],
             }
         },
@@ -69,7 +69,6 @@
             },
             width: {
                 type: String,
-                default: 'initial'
             },
             buttonType: {
                 type: String,
@@ -84,6 +83,10 @@
                 default: null
             },
             icon: {
+                type: Boolean,
+                default: false
+            },
+            centered: {
                 type: Boolean,
                 default: false
             }
@@ -105,7 +108,7 @@
                     'button--font-' + (this.bold ? 'bold' : 'none'),
                     'button--hover-' + (this.hover ? 'variant' : 'default'),
                     'button--' + (this.disabled ? 'disabled' : 'enabled'),
-                    'button--width-' + this.width
+                    'button--position-' + (this.centered ? 'centered' : 'default'),
                 ];
             }
         },
@@ -129,7 +132,7 @@
 
 <style lang="scss">
     .button {
-        min-width: 5rem;
+        width: 5rem;
 
         @apply relative font-light inline-flex flex-shrink-0 items-center justify-center text-center text-base px-6 rounded select-none cursor-pointer whitespace-no-wrap;
 
@@ -155,7 +158,7 @@
     }
 
     .button--primary {
-        background: linear-gradient(to right, theme('colors.primary.500') 50%, theme('colors.primary.700') 100%);
+        background: linear-gradient(to right, var(--colors-primary-500) 50%, var(--colors-primary-700) 100%);
         background-size: 200%;
         background-position: right 0;
 
@@ -203,7 +206,7 @@
     }
 
     .button--large {
-        min-width: 12.5rem;
+        width: 12.5rem;
 
         @apply h-10;
     }
@@ -218,5 +221,9 @@
 
     .button__icon {
         @apply z-10 h-6 w-6 mr-2;
+    }
+
+    .button--position-centered {
+        @apply mx-auto;
     }
 </style>

@@ -1,30 +1,40 @@
 <template>
     <div>
-        <div class="container mx-auto">
-            <div class="grid grid-cols-4 gap-4">
-                <card height="19rem">
-                    <card-background background="https://img.guildedcdn.com/UserBanner/19c8b5ca2868324e26cdd51820ae1088-HeroMd.png" />
+        <spacer x="12rem" />
 
-                    <card-content-social :user="user" />
+        <div class="container flex flex-col items-center justify-center mx-auto">
+            <div class="grid grid-cols-1 gap-8 mb-10">
+                <h1 class="text-center text-3xl md:text-5xl text-neutral-100 font-black">
+                    A community that puts you first
+                </h1>
+
+                <p class="text-center text-md md:text-xl text-neutral-200 leading-normal max-w-xl mx-auto">
+                    Join us and write our history with ever changing content on our server.
+                    It's time for a fresh start. Let's grow together!
+                </p>
+
+                <Button size="large" centered>connect</Button>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 h-64">
+                <card>
+                    <card-background background="https://i.imgur.com/QrRmMZg.jpg" blurred />
+
+                    <card-content-feature :icon="['fas', 'users']" title="Community built first" />
                 </card>
 
-                <card height="19rem">
-                    <card-background background="https://img.guildedcdn.com/UserBanner/19c8b5ca2868324e26cdd51820ae1088-HeroMd.png" />
+                <card>
+                    <card-background background="https://wallpapercave.com/wp/wp2856904.jpg" blurred />
 
-                    <card-content-social :user="user" />
+                    <card-content-feature :icon="['fas', 'server']" title="Server hardware that matters" />
                 </card>
 
-                <card height="19rem">
-                    <card-background background="https://img.guildedcdn.com/UserBanner/19c8b5ca2868324e26cdd51820ae1088-HeroMd.png" />
+                <card>
+                    <card-background background="https://wallpaperplay.com/walls/full/3/9/7/299161.jpg" blurred />
 
-                    <card-content-social :user="user" />
+                    <card-content-feature :icon="['fas', 'shield-alt']" title="Hand-picked curated staff" />
                 </card>
 
-                <card height="19rem">
-                    <card-background background="https://img.guildedcdn.com/UserBanner/19c8b5ca2868324e26cdd51820ae1088-HeroMd.png" />
-
-                    <card-content-social :user="user" />
-                </card>
             </div>
         </div>
     </div>

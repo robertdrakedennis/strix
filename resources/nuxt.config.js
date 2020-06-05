@@ -2,6 +2,8 @@ const pkg = require('../package.json')
 require('dotenv').config()
 
 export default {
+    globalName: 'strix',
+
     mode: 'spa',
 
     srcDir: "resources",
@@ -9,6 +11,7 @@ export default {
     env: {
         version: pkg.version,
     },
+
 
     /*
     ** Headers of the page
@@ -66,7 +69,7 @@ export default {
 
     components: [
         { path: `~/views/theme/${process.env.APP_THEME}/components` }
-        ],
+    ],
 
     /*
     ** Nuxt.js dev-modules
@@ -86,8 +89,15 @@ export default {
         }],
         '@nuxtjs/tailwindcss',
         '@nuxtjs/router',
-        '@nuxt/components'
+        '@nuxt/components',
+        '@nuxtjs/fontawesome',
     ],
+
+    fontawesome: {
+        icons: {
+            solid: true,
+        }
+    },
 
     tailwindcss: {
         configPath: '~/config/tailwind.config.js',

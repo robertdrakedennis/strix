@@ -1,11 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import auth from '~/routes/auth';
+import { page } from '~/utils';
 
 Vue.use(Router);
-
-const theme = process.env.APP_THEME;
-
-const page = path => async () => await import(`~/views/theme/${theme}/pages/${path}`).then(m => m.default || m);
 
 export function createRouter() {
     return new Router({
@@ -16,21 +14,7 @@ export function createRouter() {
                 name: 'index',
                 component: page('index.vue')
             },
-            {
-                path: '/auth/login',
-                name: 'auth.login',
-                component: page('auth/login.vue')
-            },
-            {
-                path: '/auth/register',
-                name: 'auth.register',
-                component: page('auth/register.vue')
-            },
-            {
-                path: '/auth/oauth/callback/:provider',
-                name: 'auth.oauth.callback.provider',
-                component: page('auth/oauth/callback/_provider.vue')
-            }
+            ...auth
         ]
     })
 }

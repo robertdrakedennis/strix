@@ -24,6 +24,7 @@
 
     export default {
         name: "login",
+        middleware: 'guest',
         data: () => ({
             // Create a new form instance
             form: new Form({

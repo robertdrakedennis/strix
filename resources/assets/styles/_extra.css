@@ -1,0 +1,11 @@
+.lazyLoad {
+    @apply opacity-0 transition-opacity duration-200 ease-in-out;
+}
+
+.lazyLoad.isLoading {
+    @apply opacity-0;
+}
+
+.lazyLoad.isLoaded {
+    @apply opacity-100;
+}

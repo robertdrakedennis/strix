@@ -2,8 +2,8 @@
     <div class="card__feature space-y-4">
         <font-awesome-icon :icon="icon" class="card__icon"></font-awesome-icon>
 
-        <span class="card__title">
-            {{ title }}
+        <span class="card__phrase">
+            {{ phrase }}
         </span>
     </div>
 </template>
@@ -12,7 +12,7 @@
     export default {
         name: "CardContentFeature",
         props: {
-            title: {
+            phrase: {
                 type: String,
                 required: true
             },
@@ -36,7 +36,7 @@
         @apply h-8 w-8 text-white !important;
     }
 
-    .card__title {
+    .card__phrase {
         @apply font-bold text-white;
     }
 </style>

@@ -8,8 +8,5 @@ html::before {
     z-index: -99999;
     content: " ";
 
-    /* theme('colors.neutral.700') for 57, 57, 71 cant use properties for rgba atm */
-    background: radial-gradient(circle at top left, rgba(57, 57, 71, 0.6) 0%, rgba(57, 57, 71, 0) 60%), theme("colors.neutral.700");
-
-    @apply fixed top-0 left-0 bg-cover bg-no-repeat bg-center h-full w-full;
+    @apply fixed top-0 left-0 bg-neutral-700 bg-cover bg-no-repeat bg-center h-full w-full;
 }

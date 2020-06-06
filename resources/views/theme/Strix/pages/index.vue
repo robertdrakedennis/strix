@@ -20,19 +20,19 @@
                 <card>
                     <card-background background="https://i.imgur.com/QrRmMZg.jpg" blurred />
 
-                    <card-content-feature :icon="['fas', 'users']" title="Community built first" />
+                    <card-content-feature :icon="['fas', 'users']" phrase="Community built first" />
                 </card>
 
                 <card>
                     <card-background background="https://wallpapercave.com/wp/wp2856904.jpg" blurred />
 
-                    <card-content-feature :icon="['fas', 'server']" title="Server hardware that matters" />
+                    <card-content-feature :icon="['fas', 'server']" phrase="Server hardware that matters" />
                 </card>
 
                 <card>
                     <card-background background="https://wallpaperplay.com/walls/full/3/9/7/299161.jpg" blurred />
 
-                    <card-content-feature :icon="['fas', 'shield-alt']" title="Hand-picked curated staff" />
+                    <card-content-feature :icon="['fas', 'shield-alt']" phrase="Hand-picked curated staff" />
                 </card>
 
             </div>

@@ -132,6 +132,7 @@ export default {
             'Content-Type': 'application/json'
         }
     },
+
     /*
     ** Build configuration
     */
@@ -141,6 +142,10 @@ export default {
         */
         extend (config, ctx) {
         },
+    },
+
+    dir: {
+      layouts: `views/theme/${process.env.APP_THEME}/layouts`,
     },
 
     generate: {

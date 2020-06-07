@@ -22,7 +22,7 @@
                         </card-header>
 
 
-                        soome other shit ig
+                        <widget-latest-threads />
                     </card>
                 </div>
             </div>

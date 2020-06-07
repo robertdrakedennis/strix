@@ -36,9 +36,9 @@ trait HandlesOauthCallback
             return $oauthProvider->user;
         }
 
-        if (User::where('email', $socialiteUser->getEmail())->exists()) {
-//            throw new EmailTakenException;
-        }
+//        if (User::where('email', $socialiteUser->getEmail())->exists()) {
+//           throw new EmailTakenException;
+//        }
 
         return $this->createUser($provider, $socialiteUser);
     }

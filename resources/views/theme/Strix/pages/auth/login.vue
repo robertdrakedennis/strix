@@ -1,6 +1,8 @@
 <template>
     <div>
-        <div class="w-full md:max-w-4xl mx-auto">
+        <Spacer x="10rem" />
+
+        <div class="w-full md:max-w-4xl mx-auto space-y-4">
             <form id="user-signup" @submit.prevent="login" @keydown="form.onKeydown($event)" class="grid grid-cols-1 gap-8">
                 <FormInput v-model="form.email" id="login-form-email" name="email" type="text" placeholder=" " required>
                     Email
@@ -10,11 +12,11 @@
                     Password
                 </FormInput>
 
-                <Button type="button">Login</Button>
+                <Button type="button" width="8rem">Login</Button>
             </form>
 
-            <Button @click.native="handleOauthLogin('steam')" type="button" variant="success">Login with Steam</Button>
-            <Button @click.native="handleOauthLogin('discord')" type="button" variant="default">Login with Discord</Button>
+            <Button @click.native="handleOauthLogin('steam')" type="button" variant="success" width="10rem">Login with Steam</Button>
+            <Button @click.native="handleOauthLogin('discord')" type="button" variant="default" width="10rem">Login with Discord</Button>
         </div>
     </div>
 </template>

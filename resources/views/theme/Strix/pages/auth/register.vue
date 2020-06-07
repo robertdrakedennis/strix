@@ -1,5 +1,7 @@
 <template>
     <div>
+        <Spacer x="10rem" />
+
         <div class="w-full md:max-w-4xl mx-auto">
             <form id="user-signup" @submit.prevent="login" @keydown="form.onKeydown($event)" class="grid grid-cols-1 gap-8">
                 <FormInput v-model="form.name" id="signup-form-name" name="name" type="text" placeholder=" " required>

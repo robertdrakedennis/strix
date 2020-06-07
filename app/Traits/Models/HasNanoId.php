@@ -13,14 +13,6 @@ trait HasNanoId
 {
     use NanoIdGenerator;
 
-    public static function bootGeneratesNanoId(): void
-    {
-        static::creating(function (Model $model) {
-            $model->{static::getUidKey()} = static::generateNanoId();
-        });
-    }
-
-
     /**
      * Name of the column where we'll store the Uid.
      *
@@ -29,5 +21,12 @@ trait HasNanoId
     protected static function getUidKey(): string
     {
         return 'uid';
+    }
+
+    public static function bootHasNanoId(): void
+    {
+        static::creating(function (Model $model) {
+            $model->{static::getUidKey()} = static::generateNanoId();
+        });
     }
 }

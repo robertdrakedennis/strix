@@ -1,15 +1,20 @@
 <?php
+declare(strict_types=1);
 
 namespace Strix\Http\Resources\Users;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
+/**
+ * @extends JsonResource<\Strix\User>
+ */
 class DefaultUserResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
      *
      * @param  \Illuminate\Http\Request  $request
+     *
      * @return array
      */
     public function toArray($request): array

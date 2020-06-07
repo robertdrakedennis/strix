@@ -24,7 +24,7 @@ trait Sluggable
     protected static function bootSluggable(): void
     {
         static::creating(function (Model $model) {
-            $model->slug = static::generateSlug($model);
+            $model->{static::getSlugKey()} = static::generateSlug($model);
         });
     }
 
@@ -36,7 +36,7 @@ trait Sluggable
      */
     protected static function generateSlug(Model $model): string
     {
-        $slug = Str::slug($model->name);
+        $slug = Str::slug($model->{static::getNamedKey()});
 
         if (Str::length($slug) >= 1) {
             return static::processRelatedSlugs($model, $slug);
@@ -59,5 +59,25 @@ trait Sluggable
         }
 
         return $slug;
+    }
+
+    /**
+     * Get the key that we'll slug.
+     *
+     * @return string
+     */
+    protected static function getSlugKey(): string
+    {
+        return 'slug';
+    }
+
+    /**
+     * Get the initial key that we'll use to make the slug.
+     *
+     * @return string
+     */
+    protected static function getNamedKey(): string
+    {
+        return 'name';
     }
 }

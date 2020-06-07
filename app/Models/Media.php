@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Strix\Models;
 
-use Strix\Traits\Models\GeneratesNanoId;
+use Strix\Traits\Models\HasNanoId;
 
 /**
  * Strix\Models\Media
@@ -55,7 +55,7 @@ use Strix\Traits\Models\GeneratesNanoId;
  */
 class Media extends \Spatie\MediaLibrary\MediaCollections\Models\Media
 {
-    use GeneratesNanoId;
+    use HasNanoId;
 
     public static function bootHasUuid(): void {}
 }

@@ -4,8 +4,7 @@ declare(strict_types=1);
 namespace Strix\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Strix\Traits\Models\GeneratesNanoId;
-use Strix\Traits\Models\GeneratesUuid;
+use Strix\Traits\Models\HasNanoId;
 
 /**
  * Strix\Models\OauthProvider
@@ -36,7 +35,7 @@ use Strix\Traits\Models\GeneratesUuid;
  */
 class OauthProvider extends Model
 {
-    use GeneratesNanoId;
+    use HasNanoId;
 
     /**
      * The table associated with the model.

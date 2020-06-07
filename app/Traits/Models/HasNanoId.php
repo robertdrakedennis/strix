@@ -9,7 +9,7 @@ use Hidehalo\Nanoid\Client;
 use Illuminate\Database\Eloquent\Model;
 use Strix\Traits\Generators\NanoIdGenerator;
 
-trait GeneratesNanoId
+trait HasNanoId
 {
     use NanoIdGenerator;
 

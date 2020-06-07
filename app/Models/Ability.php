@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Strix\Models;
 
-use Strix\Traits\Models\GeneratesNanoId;
+use Strix\Traits\Models\HasNanoId;
 
 /**
  * Strix\Models\Ability
@@ -46,5 +46,5 @@ use Strix\Traits\Models\GeneratesNanoId;
  */
 class Ability extends \Silber\Bouncer\Database\Ability
 {
-    use GeneratesNanoId;
+    use HasNanoId;
 }

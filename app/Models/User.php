@@ -8,8 +8,8 @@ use Silber\Bouncer\Database\HasRolesAndAbilities;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Strix\Traits\Media\CachesMediaUrl;
-use Strix\Traits\Models\GeneratesNanoId;
-use Strix\Traits\Models\Sluggable;
+use Strix\Traits\Models\hasNanoId;
+use Strix\Traits\Models\HasSlug;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -61,7 +61,7 @@ use Illuminate\Notifications\Notifiable;
  */
 class User extends Authenticatable implements MustVerifyEmail, HasMedia
 {
-    use Notifiable, GeneratesNanoId, HasApiTokens, InteractsWithMedia, HasRolesAndAbilities, CachesMediaUrl, Sluggable;
+    use Notifiable, hasNanoId, HasApiTokens, InteractsWithMedia, HasRolesAndAbilities, CachesMediaUrl, HasSlug;
 
     /**
      * The attributes that are mass assignable.

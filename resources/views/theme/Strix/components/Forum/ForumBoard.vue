@@ -42,7 +42,7 @@
             <div class="board__block">
                 <h6 class="board__thread">
                     <nuxt-link to="/">
-                        Some sort of title
+                        Some sort of title with a stupidly long title? who the fuck allowed this what the fuck
                     </nuxt-link>
                 </h6>
 
@@ -53,7 +53,7 @@
 
                     <span class="text-neutral-300 text-sm">·</span>
 
-                    <div>
+                    <div class="text-neutral-100">
                         <nuxt-link to="/">
                             atlas
                         </nuxt-link>
@@ -104,6 +104,6 @@
     }
 
     .board__minor {
-        @apply relative flex flex-row items-center text-xs text-neutral-200;
+        @apply relative flex flex-row items-center text-xs text-neutral-300;
     }
 </style>

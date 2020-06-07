@@ -10,8 +10,7 @@
                             Official
                         </card-header>
 
-
-                        <forum-board />
+                        <lazy-forum-board />
                     </card>
                 </div>
 
@@ -21,8 +20,7 @@
                             Latest Threads
                         </card-header>
 
-
-                        <widget-latest-threads />
+                        <lazy-widget-latest-threads />
                     </card>
                 </div>
             </div>

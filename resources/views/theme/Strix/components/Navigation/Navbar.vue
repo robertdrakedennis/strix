@@ -31,27 +31,28 @@
             </ul>
 
             <ul class="navbar__group navbar__group--float-right">
-                <li class="navbar__item">
-                    <Button type="button" variant="default" size="medium" height="2.5rem" width="100%" icon>
-                        <template #icon>
-                            <img src="http://strix.legacy/static/king/currency/crown_tilted.svg" alt="">
-                        </template>
 
-                        Get Crowns
-                    </Button>
-                </li>
+                <template v-if="user">
+                    <li class="navbar__item">
+                        <Button type="button" variant="default" size="medium" height="2.5rem" width="100%">
+                            Store
+                        </Button>
+                    </li>
 
-                <li v-if="user" class="navbar__item">
-                    <nuxt-link to="/">
-                        <img class="navbar__avatar" :src="user.avatar" alt="avatar">
-                    </nuxt-link>
-                </li>
+                    <li class="navbar__item">
+                        <nuxt-link to="/">
+                            <img class="navbar__avatar" :src="user.avatar" alt="avatar">
+                        </nuxt-link>
+                    </li>
+                </template>
 
-                <li v-else class="navbar__item">
-                    <nuxt-link to="/">
-                        <img class="navbar__avatar" src="http://strix.legacy/storage/90a8be0e-32bd-4145-a246-91fd47bc90bb/efc8c2a440e1e57fb2cb027953f7aab7.jpg" alt="avatar">
-                    </nuxt-link>
-                </li>
+                <template v-else>
+                    <li class="navbar__item">
+                        <Button type="link" url="/auth/login" size="medium" height="2.5rem" width="8rem">
+                            Login
+                        </Button>
+                    </li>
+                </template>
             </ul>
         </div>
     </header>
@@ -117,11 +118,11 @@
     }
 
     .navbar__item {
-        @apply inline-flex;
+        @apply inline-flex px-4;
     }
 
     .navbar__link {
-        @apply text-sm opacity-75 cursor-pointer px-4 py-2 items-center justify-center text-neutral-200 transition-opacity duration-300 ease-in-out;
+        @apply text-sm opacity-75 cursor-pointer items-center justify-center text-neutral-200 transition-opacity duration-300 ease-in-out;
     }
 
     .navbar__link:hover {
@@ -129,6 +130,6 @@
     }
 
     .navbar__avatar {
-        @apply w-12 h-12 rounded ml-4;
+        @apply w-12 h-12 rounded;
     }
 </style>

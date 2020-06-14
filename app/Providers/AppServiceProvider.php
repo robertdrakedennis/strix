@@ -39,7 +39,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function bootBouncerModels(): void
     {
-        \Bouncer::useAbilityModel(Ability::class);
-        \Bouncer::useRoleModel(Role::class);
+        \Bouncer::useAbilityModel(Ability\Ability::class);
+        \Bouncer::useRoleModel(Role\Role::class);
     }
 }

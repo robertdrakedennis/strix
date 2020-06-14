@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Strix\Http\Controllers\Controller;
-use Strix\Models\User;
+use Strix\Models\User\User;
 use Validator;
 
 class RegisterController extends Controller

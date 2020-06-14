@@ -83,6 +83,10 @@
         @apply relative w-full;
     }
 
+    .board--not-first {
+        @apply border-t border-neutral-500;
+    }
+
     .board__section {
         @apply relative p-2 h-full w-full;
     }

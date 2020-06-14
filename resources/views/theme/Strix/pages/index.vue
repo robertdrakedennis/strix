@@ -2,7 +2,7 @@
     <div>
         <spacer x="12rem" />
 
-        <div class="container flex flex-col items-center justify-center mx-auto">
+        <container flex flex-col centered>
             <div class="grid grid-cols-1 gap-8 mb-10">
                 <h1 class="text-center text-3xl md:text-5xl text-neutral-100 font-black">
                     A community that puts you first
@@ -36,7 +36,7 @@
                 </card>
 
             </div>
-        </div>
+        </container>
     </div>
 </template>
 

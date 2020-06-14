@@ -49,16 +49,12 @@ export default {
     /*
     ** Global CSS
     */
-    css: [
-        // 'vue-select/dist/vue-select.css'
-    ],
+    css: [],
 
     /*
     ** Plugins to load before mounting the App
     */
-    plugins: [
-        '~/plugins/vue-placeholders'
-    ],
+    plugins: [],
 
     components: [
         { path: `~/views/theme/${process.env.APP_THEME}/components` }

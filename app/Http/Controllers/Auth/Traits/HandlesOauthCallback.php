@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Strix\Http\Controllers\Auth\Traits;
 
 
-use Strix\Models\OauthProvider;
-use Strix\Models\User;
+use Strix\Models\OAuthProvider\OAuthProvider;
+use Strix\Models\User\User;
 use Strix\Traits\Generators\NanoIdGenerator;
 
 trait HandlesOauthCallback

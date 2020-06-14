@@ -6,7 +6,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Strix\Http\Controllers\Controller;
-use Strix\Models\User;
+use Strix\Models\User\User;
 use URL;
 
 class VerificationController extends Controller

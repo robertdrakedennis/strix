@@ -218,7 +218,7 @@
     }
 
     .button__icon {
-        @apply z-10 h-6 w-6 mr-2;
+        @apply z-10 mr-1;
     }
 
     .button--position-centered {

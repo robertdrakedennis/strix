@@ -2,7 +2,7 @@
     <div>
         <spacer x="10rem" />
 
-        <div class="container px-6 md:px-0 md:mx-auto">
+        <container>
             <div class="grid grid-cols-1 md:grid-cols-8 gap-4">
                 <div class="col-span-1 md:col-span-6">
                     <card>
@@ -24,7 +24,7 @@
                     </card>
                 </div>
             </div>
-        </div>
+        </container>
     </div>
 </template>
 

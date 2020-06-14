@@ -68,7 +68,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => \Strix\Models\User::class,
+            'model' => \Strix\Models\User\User::class,
         ],
 
         // 'users' => [

@@ -1,14 +1,18 @@
 {
-    "name": "laravel/laravel",
+    "name": "strix/platform",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Strix is a powerful platform to handle donations, updates, and forums.",
     "keywords": [
-        "framework",
-        "laravel"
+        "strix",
+        "laravel",
+        "php",
+        "livewire",
+        "alpinejs"
     ],
     "license": "MIT",
     "require": {
         "php": "^7.4",
+        "caffeinated/modules": "^6.2",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
@@ -19,9 +23,9 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
         "predis/predis": "^1.1",
-        "robertdrakedennis/socialiteproviders-steam": "dev-master",
         "silber/bouncer": "v1.0.0-rc.8",
         "socialiteproviders/discord": "^2.0",
+        "socialiteproviders/steam": "^3.0",
         "spatie/laravel-medialibrary": "^8.0.0"
     },
     "require-dev": {

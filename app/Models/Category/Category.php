@@ -33,6 +33,9 @@ use Strix\Traits\Models\HasSlug;
  * @method static \Illuminate\Database\Eloquent\Builder|\Strix\Models\Category\Category whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Strix\Models\Category\Category whereWeight($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Query\Builder|\Strix\Models\Category\Category onlyTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\Strix\Models\Category\Category withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\Strix\Models\Category\Category withoutTrashed()
  */
 class Category extends Model
 {

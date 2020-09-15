@@ -1,0 +1,15 @@
+.icon {
+    @apply inline-block h-auto;
+}
+
+.icon--sm {
+    @apply w-3;
+}
+
+.icon--md {
+    @apply w-4;
+}
+
+.icon--lg {
+    @apply w-6;
+}

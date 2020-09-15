@@ -17,6 +17,7 @@ class CreateBouncerTables extends Migration
     {
         Schema::create(Models::table('abilities'), function (Blueprint $table) {
             $table->bigIncrements('id');
+
             $table->string('uid', 21)->index();
 
             $table->string('name');

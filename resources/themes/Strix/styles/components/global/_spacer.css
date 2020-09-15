@@ -1,0 +1,6 @@
+    .spacer {
+        height: 1px;
+        width: 1px;
+
+        @apply block;
+    }

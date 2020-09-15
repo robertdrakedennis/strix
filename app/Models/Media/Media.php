@@ -51,6 +51,8 @@ use Strix\Traits\Models\HasNanoId;
  * @method static \Illuminate\Database\Eloquent\Builder|\Strix\Models\Media\Media whereUid($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Strix\Models\Media\Media whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection|static[] all($columns = ['*'])
+ * @method static \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection|static[] get($columns = ['*'])
  */
 class Media extends \Spatie\MediaLibrary\MediaCollections\Models\Media
 {

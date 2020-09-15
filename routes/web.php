@@ -14,7 +14,39 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/test', function () {
+    return view('pages.test');
+});
+
+Route::post('/test', function (Request $request) {
+    dd($request->input());
+});
+
+Route::get('/', function () {
+    return view('pages.index');
+});
+
 Route::post('/auth/register', [\Strix\Http\Controllers\Auth\RegisterController::class, 'register']);
 Route::post('/auth/login', [\Strix\Http\Controllers\Auth\LoginController::class, 'login']);
 Route::post('/auth/oauth/{provider}', [\Strix\Http\Controllers\Auth\OAuthController::class, 'redirectToProvider']);
 Route::get('/auth/oauth/callback/{provider}', [\Strix\Http\Controllers\Auth\OAuthController::class, 'handleProviderCallback']);
+
+
+Route::group(['prefix' => 'forums'], function () {
+    Route::get('/', function () {
+        return view('pages.forum.index');
+    });
+
+    Route::get('category/some-category', function () {
+        return view('pages.forum.category.show');
+    });
+
+    Route::get('board/some-board', function () {
+        return view('pages.forum.board.show');
+    });
+
+    Route::get('thread/some-thread', function () {
+        return view('pages.forum.thread.show');
+    });
+});

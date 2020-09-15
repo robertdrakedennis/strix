@@ -63,10 +63,12 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Eloquent\Builder|\Strix\Models\User\User whereUid($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Strix\Models\User\User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Strix\Models\Thread\Thread[] $threads
+ * @property-read int|null $threads_count
  */
 class User extends Authenticatable implements MustVerifyEmail, HasMedia
 {
-    use Notifiable, HasNanoId, HasApiTokens, InteractsWithMedia, HasRolesAndAbilities, CachesMediaUrl, HasSlug, HasComments;
+    use Notifiable, HasNanoId, InteractsWithMedia, HasRolesAndAbilities, CachesMediaUrl, HasSlug, HasComments;
 
     /**
      * The attributes that are mass assignable.

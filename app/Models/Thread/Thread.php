@@ -45,6 +45,9 @@ use Strix\Traits\Models\HasNanoId;
  * @method static \Illuminate\Database\Eloquent\Builder|\Strix\Models\Thread\Thread whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Strix\Models\Thread\Thread whereUserId($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Query\Builder|\Strix\Models\Thread\Thread onlyTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\Strix\Models\Thread\Thread withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\Strix\Models\Thread\Thread withoutTrashed()
  */
 class Thread extends Model
 {

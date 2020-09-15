@@ -39,7 +39,7 @@ trait CachesMediaUrl
      */
     protected function getMediaCacheKey(string $collectionName): string
     {
-        return class_basename(static::class) . $this->id . $collectionName;
+        return class_basename(static::class) . ':' . $this->id . ':' . $collectionName;
     }
 
     /**

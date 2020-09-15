@@ -45,6 +45,11 @@ use Strix\Traits\Models\HasSlug;
  * @method static \Illuminate\Database\Eloquent\Builder|\Strix\Models\Board\Board whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\Strix\Models\Board\Board whereWeight($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Strix\Models\Thread\Thread[] $threads
+ * @property-read int|null $threads_count
+ * @method static \Illuminate\Database\Query\Builder|\Strix\Models\Board\Board onlyTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\Strix\Models\Board\Board withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\Strix\Models\Board\Board withoutTrashed()
  */
 class Board extends Model
 {

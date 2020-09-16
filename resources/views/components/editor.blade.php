@@ -1,22 +1,27 @@
-<div id="editor"></div>
+<textarea
+    id="editor"
+    name="content"
+>
+    This is some sample content.
+</textarea>
 
-@once
-@push('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
-@endPush
-@endOnce
 
 @push('scripts')
+    @once
+        <script
+            src="https://cdn.ckeditor.com/ckeditor5/22.0.0/classic/ckeditor.js"
+        ></script>
+    @endonce
+
     <script>
-        var editor = new EditorJS({
-            holder: 'editor',
-            onChange: function() {
-                editor.save().then((savedData) => {
-                    console.log(JSON.stringify(savedData));
-
-                    document.getElementById("input").value = JSON.stringify(savedData);
-                });
-            }
-        });
+        window.ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .then( editor => {
+                console.log( editor );
+            } )
+            .catch( error => {
+                console.error( error );
+            } );
     </script>
+
 @endpush

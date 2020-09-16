@@ -175,6 +175,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         Strix\Providers\EventServiceProvider::class,
         Strix\Providers\RouteServiceProvider::class,
+
+        Strix\Providers\FortifyServiceProvider::class,
     ],
 
     /*

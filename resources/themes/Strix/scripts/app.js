@@ -1,4 +1,2 @@
 require('./plugins/micromodal');
-require('./plugins/tippy')
-
-require('./components/editor')
+require('./plugins/tippy');

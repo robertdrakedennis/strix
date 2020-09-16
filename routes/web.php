@@ -19,16 +19,14 @@ Route::get('/test', function () {
     return view('pages.test');
 });
 
-Route::post('/test', function (Request $request) {
-    dd($request->input());
+Route::post('/test', function () {
+    dd(clean(request()->get('content')));
 });
 
 Route::get('/', function () {
     return view('pages.index');
 });
 
-Route::post('/auth/register', [\Strix\Http\Controllers\Auth\RegisterController::class, 'register']);
-Route::post('/auth/login', [\Strix\Http\Controllers\Auth\LoginController::class, 'login']);
 Route::post('/auth/oauth/{provider}', [\Strix\Http\Controllers\Auth\OAuthController::class, 'redirectToProvider']);
 Route::get('/auth/oauth/callback/{provider}', [\Strix\Http\Controllers\Auth\OAuthController::class, 'handleProviderCallback']);
 

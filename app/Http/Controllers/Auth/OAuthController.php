@@ -9,6 +9,7 @@ use Socialite;
 use Strix\Http\Controllers\Auth\Traits\HandlesOauthCallback;
 use Strix\Http\Controllers\Controller;
 use Strix\Http\Resources\Users\DefaultUserResource;
+use Strix\Models\User\User;
 
 class OAuthController extends Controller
 {
@@ -22,9 +23,7 @@ class OAuthController extends Controller
      */
     public function redirectToProvider(string $provider): JsonResponse
     {
-        return response()->json([
-            'url' => Socialite::driver($provider)->stateless()->redirect()->getTargetUrl(),
-        ], 200);
+        return Socialite::driver($provider)->redirect();
     }
 
     /**
@@ -34,14 +33,14 @@ class OAuthController extends Controller
      * @return DefaultUserResource
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileCannotBeAdded
      */
-    public function handleProviderCallback(string $provider): DefaultUserResource
+    public function handleProviderCallback(string $provider): User
     {
-        $user = Socialite::driver($provider)->stateless()->user();
+        $user = Socialite::driver($provider)->user();
 
         $user = $this->findOrCreateUser($provider, $user);
 
         \Auth::login($user, true);
 
-        return new DefaultUserResource($user);
+        return $user;
     }
 }

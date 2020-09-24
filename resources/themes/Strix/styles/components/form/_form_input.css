@@ -1,31 +1,11 @@
-    .input {
-        @apply relative flex flex-row items-center justify-between flex-grow flex-shrink-0;
-    }
+.input {
+    @apply h-full text-sm p-2 bg-neutral-500 appearance-none shadow-none outline-none border border-neutral-400 rounded text-neutral-100 leading-tight transition-all duration-300 ease-in-out;
 
-    .input__content {
-        @apply h-full w-full bg-transparent appearance-none border-0 border-b border-neutral-200 rounded-none text-neutral-100 leading-tight transition-all duration-300 ease-in-out;
-    }
+    @apply hover:shadow;
 
-    .input__content:focus {
-        @apply outline-none border-primary-500;
-    }
+    @apply focus:outline-none focus:shadow-md focus:border-neutral-300;
+}
 
-    .input--medium {
-        @apply h-12;
-    }
-
-    .input__label {
-        @apply absolute pointer-events-none text-neutral-200 origin-top-left transition-all duration-300;
-
-        transform: translate(0, 0) scale(1);
-    }
-
-    .input--focused {
-        @apply origin-top-left;
-
-        transform: translate(0, -28px) scale(0.75);
-    }
-
-    .input__content:not(:placeholder-shown) + .input__label {
-        transform: translate(0, -28px) scale(0.75);
-    }
+.input--medium {
+    @apply h-8;
+}

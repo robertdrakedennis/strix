@@ -1,0 +1,3 @@
+.form__error {
+    @apply inline-block text-xs text-danger-500;
+}

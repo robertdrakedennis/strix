@@ -5,7 +5,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 **
 ** Docs: https://tailwindcss.com/docs/configuration
 ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
-** Version: 1.7.0
+** Version: 1.8.10
 */
 module.exports = {
     purge: {
@@ -132,7 +132,8 @@ module.exports = {
     },
     variants: ["responsive", "hover", "focus", "disabled"],
     future: {
-        removeDeprecatedGapUtilities: true
+        removeDeprecatedGapUtilities: true,
+        purgeLayersByDefault: true,
     },
     experimental: {
         applyComplexClasses: true,

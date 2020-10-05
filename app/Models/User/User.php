@@ -65,6 +65,10 @@ use Illuminate\Notifications\Notifiable;
  * @mixin \Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection|\Strix\Models\Thread\Thread[] $threads
  * @property-read int|null $threads_count
+ * @property string|null $two_factor_secret
+ * @property string|null $two_factor_recovery_codes
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorRecoveryCodes($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorSecret($value)
  */
 class User extends Authenticatable implements MustVerifyEmail, HasMedia
 {

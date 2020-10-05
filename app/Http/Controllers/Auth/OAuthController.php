@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace Strix\Http\Controllers\Auth;
 
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\JsonResponse;
 use Socialite;
 use Strix\Http\Controllers\Auth\Traits\HandlesOauthCallback;
@@ -13,7 +12,7 @@ use Strix\Models\User\User;
 
 class OAuthController extends Controller
 {
-    use AuthenticatesUsers, HandlesOauthCallback;
+    use HandlesOauthCallback;
 
     /**
      * Redirect the user to the provider authentication page.

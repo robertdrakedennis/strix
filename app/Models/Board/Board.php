@@ -4,10 +4,11 @@ declare(strict_types=1);
 namespace Strix\Models\Board;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Strix\Models\Category\Category;
 use Strix\Models\Thread\Thread;
-use Strix\Traits\Models\Categorizeable;
 use Strix\Traits\Models\HasNanoId;
 use Strix\Traits\Models\HasSlug;
 
@@ -50,10 +51,11 @@ use Strix\Traits\Models\HasSlug;
  * @method static \Illuminate\Database\Query\Builder|\Strix\Models\Board\Board onlyTrashed()
  * @method static \Illuminate\Database\Query\Builder|\Strix\Models\Board\Board withTrashed()
  * @method static \Illuminate\Database\Query\Builder|\Strix\Models\Board\Board withoutTrashed()
+ * @property-read Category $category
  */
 class Board extends Model
 {
-    use HasNanoId, HasSlug, Categorizeable, SoftDeletes;
+    use HasNanoId, HasSlug, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -72,5 +74,21 @@ class Board extends Model
     public function threads(): HasMany
     {
         return $this->hasMany(Thread::class);
+    }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    /**
+     * Registers the media collections the user will have
+     *
+     * @return void
+     */
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('board.icon')
+        ->singleFile();
     }
 }

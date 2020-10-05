@@ -1,7 +1,13 @@
 <?php
+
 declare(strict_types=1);
 
 use Illuminate\Support\Facades\Route;
+use Strix\Http\Controllers\Auth\OAuthController;
+use Strix\Http\Controllers\Forums\Board\BoardController;
+use Strix\Http\Controllers\Forums\Category\CategoryController;
+use Strix\Http\Controllers\Forums\ForumController;
+use Strix\Http\Controllers\Forums\Thread\ThreadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,24 +33,25 @@ Route::get('/', function () {
     return view('pages.index');
 });
 
-Route::post('/auth/oauth/{provider}', [\Strix\Http\Controllers\Auth\OAuthController::class, 'redirectToProvider']);
-Route::get('/auth/oauth/callback/{provider}', [\Strix\Http\Controllers\Auth\OAuthController::class, 'handleProviderCallback']);
+Route::group(['prefix' => 'auth'], function () {
+    Route::post('oauth/{provider}', [OAuthController::class, 'redirectToProvider'])
+        ->name('oauth.redirect');
+
+    Route::get('oauth/callback/{provider}', [OAuthController::class, 'handleProviderCallback'])
+        ->name('oauth.callback');
+});
 
 
 Route::group(['prefix' => 'forums'], function () {
-    Route::get('/', function () {
-        return view('pages.forum.index');
-    });
+    Route::get('/', [ForumController::class, '__invoke'])
+        ->name('index');
 
-    Route::get('category/some-category', function () {
-        return view('pages.forum.category.show');
-    });
+    Route::get('category/some-category', [CategoryController::class, '__invoke'])
+        ->name('category.show');
 
-    Route::get('board/some-board', function () {
-        return view('pages.forum.board.show');
-    });
+    Route::get('board/some-board', [BoardController::class,  '__invoke'])
+        ->name('board.show');
 
-    Route::get('thread/some-thread', function () {
-        return view('pages.forum.thread.show');
-    });
+    Route::get('thread/some-thread', [ThreadController::class, 'show'])
+        ->name('thread.show');
 });

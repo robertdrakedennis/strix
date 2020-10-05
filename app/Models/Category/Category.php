@@ -36,6 +36,8 @@ use Strix\Traits\Models\HasSlug;
  * @method static \Illuminate\Database\Query\Builder|\Strix\Models\Category\Category onlyTrashed()
  * @method static \Illuminate\Database\Query\Builder|\Strix\Models\Category\Category withTrashed()
  * @method static \Illuminate\Database\Query\Builder|\Strix\Models\Category\Category withoutTrashed()
+ * @property string $type
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereType($value)
  */
 class Category extends Model
 {
@@ -47,7 +49,7 @@ class Category extends Model
      * @var array
      */
     protected $fillable = [
-      'uid', 'title', 'description', 'slug', 'weight'
+      'uid', 'title', 'description', 'slug', 'weight', 'type'
     ];
 
     /**

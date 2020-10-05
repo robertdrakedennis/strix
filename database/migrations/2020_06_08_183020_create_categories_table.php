@@ -21,7 +21,7 @@ class CreateCategoriesTable extends Migration
             $table->string('uid', 21)->index();
 
             $table->string('title');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->{static::jsonable()}('description')->nullable();
             $table->unsignedBigInteger('weight')->default(0);
             $table->timestamps();
